@@ -67,10 +67,45 @@ void autonomous () {
     b_right_mtr.move_voltage(MAX_FORWARD/2);
     f_right_mtr.move_voltage(MAX_FORWARD/2);
     pros::delay(850);
-    b_left_mtr.move_voltage(0);
-    f_left_mtr.move_voltage(0);
-    b_right_mtr.move_voltage(0);
-    f_right_mtr.move_voltage(0);
+    // b_left_mtr.move_voltage(0);
+    // f_left_mtr.move_voltage(0);
+    // b_right_mtr.move_voltage(0);
+    // f_right_mtr.move_voltage(0);
+
+    
+    // Turn right toward cubes
+    b_right_mtr.move_voltage(MAX_BACKWARD);
+    f_right_mtr.move_voltage(MAX_BACKWARD);
+    pros::delay(150);
+    // Forward running intake
+    b_right_mtr.move_voltage(MAX_FORWARD/2);
+    f_right_mtr.move_voltage(MAX_FORWARD/2);
+    left_intake_mtr.move_voltage(MAX_FORWARD);
+    right_intake_mtr.move_voltage(MAX_FORWARD);
+    pros::delay(4000);
+    // Backward with intake stopped
+    b_left_mtr.move_voltage(MAX_BACKWARD/2);
+    f_left_mtr.move_voltage(MAX_BACKWARD/2);
+    b_right_mtr.move_voltage(MAX_BACKWARD/2);
+    f_right_mtr.move_voltage(MAX_BACKWARD/2);
+    pros::delay(3000);
+    // Turn right toward goal zone
+    b_left_mtr.move_voltage(MAX_FORWARD);
+    f_left_mtr.move_voltage(MAX_FORWARD);
+    pros::delay(150);
+    // Forward toward goal zone
+    b_left_mtr.move_voltage(MAX_FORWARD/2);
+    f_left_mtr.move_voltage(MAX_FORWARD/2);
+    b_right_mtr.move_voltage(MAX_FORWARD/2);
+    f_right_mtr.move_voltage(MAX_FORWARD/2);
+    pros::delay(2000);
+    
+    // Tray to vertical
+    tray_mtr.move_voltage(2500);
+    while(tray_mtr.get_position() < 1300) {
+        pros::delay(100);
+    }
+    tray_mtr.move_voltage(0);
 }
 
 
