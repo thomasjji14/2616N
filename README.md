@@ -1,3 +1,1 @@
-shh dont tell anyone its 2616N
-its a secret
-dont tell anyone please
+Team 2616N's codebase for the 2019-2020 season from Vex Robotics. No longer maintained.
